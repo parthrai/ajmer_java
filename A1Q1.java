@@ -53,11 +53,22 @@ public class A1Q1{
         return out;
     }
 
+
     // You are NOT asked to write a program so this following main
     // method is not needed. However, you CAN write code here to help
     // test your methods. Just be sure that whatever you add here does not
     //
     public static void main(String[] args){
+
+      double[] output = rollingAverage(new double[]{1,2,4}, 1);
+
+      String output_str = "[";
+
+      for(int i = 0; i < output.length; i++){
+          output_str = output_str + output[i] + ",";
+      }
+
+      System.out.println(output_str.substring(0, output_str.length() - 1) + "]");
 
         System.out.println(Arrays.toString(rollingAverage(new double[]{1,2,4}, 1)));
         System.out.println(Arrays.toString(rollingAverage(new double[]{1,2}, 2)));

@@ -53,17 +53,6 @@ public class A1Q1{
         return out;
     }
 
- /*   [1, 2, 4, 9] 3
-
-    index - width = result
-    if(result + 1)) < 0) {
-        Nan
-    }
-    else {
-        from result + 1
-    }
-*/
-
     // You are NOT asked to write a program so this following main
     // method is not needed. However, you CAN write code here to help
     // test your methods. Just be sure that whatever you add here does not

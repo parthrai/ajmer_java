@@ -50,7 +50,46 @@ public class A1Q3{
         //         all elements are integers between 0 and 20 (inclusive)
         //         all values are scalled averages from the input data
 
+
+        int size = 20;
+        double[] bins = new double[20];
+
+        int width = 0;
+
+        if(data.length % size == 0 ){
+          width = data.length;
+        }else{
+          width = data.length + 1;
+        }
+
+        int first = data.length;
+
+        for(int i = 0; i <= first; i++){
+          bins[i] = ave(data, i*width, width);
+        }
+
+        if(first*width < data.length){
+          bins[first] = ave(data, first*width, data.length - first*width);
+        }
+
+        biggest = bins[0];
+
+        for(int i=0; i< size; i++){
+          if(biggest < bins[i]){
+            biggest = bins[i];
+          }
+        }
+
+        int scale = 20/biggest;
+
+
+
+
         int[] out = new int[20];  // this will be the output array
+
+        for(int i = 0; i<size; i++){
+          out[i] = bins[i]*scale;
+        }
 
         // add your code here to fill in the 'out' array
 
@@ -114,9 +153,6 @@ public class A1Q3{
 
         plot.append(bottom);
 
-
-
-
         plot.append("\n|00000000011111111112|\n");
 
         plot.append("|12345678901234567890|\n");
@@ -144,7 +180,7 @@ public class A1Q3{
 
 
       String res = plotVertical(payload);
-        System.out.println(res.length());
+      System.out.println(res.length());
 
 
 

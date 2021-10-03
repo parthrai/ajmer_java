@@ -2,7 +2,7 @@
 
 /** Assignment 1 Question 3
  *  COMP 1006/1406 - Fall 2021
- * 
+ *
  *  Creating a simple console view for some data
  */
 public class A1Q3{
@@ -12,25 +12,25 @@ public class A1Q3{
     public static double efficiency = 0.0;
 
     public static double ave(double[] data, int index, int width){
-        // Helper function that computes the average of 
+        // Helper function that computes the average of
         // 'width' consecutive values in 'data' starting at index 'i'
-        // That is, it returns 
+        // That is, it returns
         //   (data[i] + data[i+1] + ... + data[i+width-1])/width
-        // Use as you see fit. 
+        // Use as you see fit.
 
-        // Try to catch some bad input cases and crash your 
-        // program if input was bad. 
+        // Try to catch some bad input cases and crash your
+        // program if input was bad.
         // You are NOT required to do this in your methods yet!
         String bad = "Bad input to ave(): ";
         if( data == null ){
-            throw new RuntimeException(bad + "data must not be null");    
+            throw new RuntimeException(bad + "data must not be null");
         }else if(index < 0 || index >= data.length){
-            throw new RuntimeException(bad + "index i out of range");    
+            throw new RuntimeException(bad + "index i out of range");
         }else if(width == 0 || width >= data.length){
             throw new RuntimeException(bad + "width is invalid");
         }
 
-        
+
         // first compute the sum of the width numbers
         double sum = 0.0;
         for(int j=index; j<index+width; j+=1){
@@ -53,17 +53,17 @@ public class A1Q3{
         int[] out = new int[20];  // this will be the output array
 
         // add your code here to fill in the 'out' array
-        
+
         return out;
     }
      public static String plotHorizontal(int[] data){
         // this method is provided as example working Java code
 
         // The StringBuilder class provides a mutable sequence of charcaters.
-        // You should use this instead of the String class when you want to 
-        // build up a string (for example, repeatedly using += on an existing 
-        // String). Use a StringBuilder for more efficient appending/insterting 
-        // of characters or strings when building up the sequence and then 
+        // You should use this instead of the String class when you want to
+        // build up a string (for example, repeatedly using += on an existing
+        // String). Use a StringBuilder for more efficient appending/insterting
+        // of characters or strings when building up the sequence and then
         // convert it to a String when done.
         StringBuilder plot = new StringBuilder();
 
@@ -72,7 +72,7 @@ public class A1Q3{
         String top     = "--+--------------------+\n";
         String newline = "\n";
         String pipe    = "|";
-        
+
         plot.append(top);
         for(int i=0; i<data.length; i+=1){
             plot.append( String.format("%02d", i+1) + pipe);
@@ -87,12 +87,27 @@ public class A1Q3{
 
     public static String plotVertical(int[] data){
         // used to build up answer
-        StringBuilder plot = new StringBuilder();  
-        
-        // add your code to build up your output string
-        // remove the following line!
-        plot.append("nothing to see here!");
+        StringBuilder plot = new StringBuilder();
 
+
+        for(int i = 1; i <= 20; i++){
+            String str = "";
+
+            for(int j = 0; j < 20; j++){
+              int temp = 20 - data[j];
+
+              if(i <= temp){
+                str = str + " ";
+              }else{
+                str = str + "#";
+              }
+            }
+
+            str = str + "\n";
+
+          plot.append(str);
+        }
+        // remove the following line!
 
         // convert the built up solution into a string and return
         return plot.toString();
@@ -100,11 +115,18 @@ public class A1Q3{
 
 
 
-    // You are NOT asked to write a program so this following main 
+
+    // You are NOT asked to write a program so this following main
     // method is not needed. However, you CAN write code here to help
     // test your methods. Just be sure that whatever you add here does not
-    // 
+    //
     public static void main(String[] args){
+
+      int[] payload = new int[]{4, 11, 20, 20, 17, 5, 19, 6, 18, 1, 1, 10, 13, 1, 0, 6, 11, 0, 3, 1};
+
+      //System.out.println(plotHorizontal(payload));
+      System.out.println(plotVertical(payload));
+
 
 
     }

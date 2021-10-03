@@ -89,9 +89,12 @@ public class A1Q3{
         // used to build up answer
         StringBuilder plot = new StringBuilder();
 
+        String top = "+--------------------+\n";
+        String bottom = "+--------------------+";
 
+        plot.append(top);
         for(int i = 1; i <= 20; i++){
-            String str = "";
+            String str =  "|";
 
             for(int j = 0; j < 20; j++){
               int temp = 20 - data[j];
@@ -103,11 +106,23 @@ public class A1Q3{
               }
             }
 
-            str = str + "\n";
+            str = str + "|"+ "\n";
 
           plot.append(str);
         }
         // remove the following line!
+
+        plot.append(bottom);
+
+
+
+
+        plot.append("\n|00000000011111111112|\n");
+
+        plot.append("|12345678901234567890|\n");
+
+
+
 
         // convert the built up solution into a string and return
         return plot.toString();
@@ -126,6 +141,10 @@ public class A1Q3{
 
       //System.out.println(plotHorizontal(payload));
       System.out.println(plotVertical(payload));
+
+
+      String res = plotVertical(payload);
+        System.out.println(res.length());
 
 
 
